@@ -104,6 +104,7 @@ for (let i = 0; i < btns.length; i++) {
 
       winnerValidation();
       console.log(winner);
+      gameStatus.textContent = winner;
       switchPlayers();
     }
   });
@@ -111,5 +112,10 @@ for (let i = 0; i < btns.length; i++) {
 console.log(winner);
 
 restartBtn.addEventListener("click", function () {
-  
-})
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].textContent = "";
+    winner = "";
+    gameStatus.textContent = winner;
+    activePlayer = playerX;
+  }
+});
