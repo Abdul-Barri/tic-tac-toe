@@ -4,6 +4,7 @@
 const gameStatus = document.querySelector(".status");
 const btns = document.querySelectorAll(".btn");
 const restartBtn = document.querySelector(".restart");
+const playersScoreDisplay = document.querySelector(".players-scores");
 console.log(btns);
 
 // Variables & Arrays declaration
@@ -11,6 +12,10 @@ const playerX = "X";
 const playerO = "O";
 let activePlayer = playerX;
 let winner = "";
+let scoreX = 0;
+let scoreO = 0;
+const winnerX = `The winner is Player ${playerX}`;
+const winnerO = `The winner is Player ${playerO}`;
 
 // Functions declaration
 const switchPlayers = function () {
@@ -105,6 +110,12 @@ for (let i = 0; i < btns.length; i++) {
       winnerValidation();
       console.log(winner);
       gameStatus.textContent = winner;
+      if (winner === winnerX) {
+        scoreX++;
+      } else if (winner === winnerO) {
+        scoreO++;
+      }
+      playersScoreDisplay.textContent = `Scores: Player X = ${scoreX} ----- Player O = ${scoreO}`;
       switchPlayers();
     }
   });
@@ -116,6 +127,7 @@ restartBtn.addEventListener("click", function () {
     btns[i].textContent = "";
     winner = "";
     gameStatus.textContent = winner;
+
     activePlayer = playerX;
   }
 });
