@@ -6,7 +6,7 @@ const btns = document.querySelectorAll(".btn");
 const restartBtn = document.querySelector(".restart");
 const playersScoreDisplay = document.querySelector(".players-scores");
 
-console.log(btns);
+// console.log(btns);
 
 // Variables & Arrays declaration
 const playerX = "X";
